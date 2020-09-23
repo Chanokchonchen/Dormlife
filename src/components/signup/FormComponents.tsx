@@ -6,9 +6,9 @@ export function TextInput(props: propTextInput) {
   const [field, meta] = useField(props);
   return (
     <div>
-      <label htmlFor={props.name}>{props.label}</label>
-      <input {...field} {...props} />
-      {meta.touched && meta.error ? <div style={{color:"red"}} >{meta.error}</div> : null}
+      <label style={props.styleLabel} className={props.classNameLabel} htmlFor={props.name}>{props.label}</label>
+      <input style={props.styleinput} className={props.classNameInput}  {...field} {...props} />
+      {meta.touched && meta.error ? <div style={props.styleerror} className={props.classNameError} >{meta.error}</div> : null}
     </div>
   );
 }

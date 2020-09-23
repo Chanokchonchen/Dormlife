@@ -1,7 +1,13 @@
 export interface propTextInput {
     label : string,
     name : string,
-    type : string
+    type : string,
+    styleLabel? : React.CSSProperties,
+    styleinput? : React.CSSProperties,
+    styleerror? : React.CSSProperties,
+    classNameInput? : string,
+    classNameLabel? : string,
+    classNameError? : string
 }
 export interface propRadioInput {
     label : string

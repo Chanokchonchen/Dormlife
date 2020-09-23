@@ -48,6 +48,7 @@ function Normal() {
       }}
     >
       <Form>
+        <h1 style={{textAlign:"center"}}> Sign up Normal User</h1><br />
         <TextInput label="Name" name="name" type="text" />
         <TextInput label="Lastname" name="lastname" type="text" />
         <TextInput label="Email" name="email" type="email" />

@@ -1,21 +1,21 @@
-export interface propTextInput {
-    label : string,
+export interface propsNormalForm {
     name : string,
-    type : string,
-    styleLabel? : React.CSSProperties,
-    styleinput? : React.CSSProperties,
-    styleerror? : React.CSSProperties,
-    classNameInput? : string,
-    classNameLabel? : string,
-    classNameError? : string
+    lastName : string,
+    phone : string,
+    password : string,
+    confirmPassword : string,
+    gender : string,
+    acceptTerm : boolean,
+    email : string
 }
-export interface propRadioInput {
-    label : string
+export interface propsDormForm {
     name : string,
-    value : string
-}
-export interface propCheckBoxInput {
-    label : string
-    name : string,
-    type : string
+    lastName : string,
+    phone : string,
+    password : string,
+    confirmPassword : string,
+    gender : string,
+    acceptTerm : boolean,
+    email : string,
+    natID : string
 }

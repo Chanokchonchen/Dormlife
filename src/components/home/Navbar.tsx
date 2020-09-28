@@ -1,5 +1,4 @@
 import React from "react";
-import Normal from "../signup/Normal";
 function Navbar() {
   return (
     <div>

@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-function Signup() {
+function Signin() {
     const history = useHistory();
     useEffect(()=>{
         document.body.style.backgroundColor="#F55E61"
@@ -32,16 +32,8 @@ function Signup() {
                 }} variant="outline-light">Signup</Button>
                 </Col>
             </Row>
-            <Row style={{color:"white"}}>
-                <Col>
-                    <h1 style={{fontSize:"2.5rem",fontWeight:"bold"}}>Already have an account?</h1>
-                    <a onClick={()=> {
-                        history.push("/signin")
-                    }} style={{fontSize:"1.5rem",textDecoration:"underline"}}  role="button">Sign in</a>
-                </Col>
-            </Row>
             
         </div>
     )
 }
-export default Signup;
+export default Signin;

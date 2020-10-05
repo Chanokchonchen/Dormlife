@@ -1,56 +1,23 @@
-import React from "react";
-import {term} from "./constant"
-import './style.css'
-function Termservice() {
+import React  from "react";
+import { term } from "./constant";
+import { Modal, Button } from "react-bootstrap";
+import { termService } from "./typeForm";
+function Termservice(props : termService) {
+  const {show,handleClose} = props 
   return (
-    <div style={{display:"inline-block"}} >
-      <button
-        type="button"
-        className="link"
-        data-toggle="modal"
-        data-target="#exampleModalScrollable"
-      >
-         Term of Service and Privacy policy
-      </button>
-      <div
-        className="modal fade"
-        id="exampleModalScrollable"
-        tabIndex={-1}
-        role="dialog"
-        aria-labelledby="exampleModalScrollableTitle"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalScrollableTitle">
-                Term of Service and Privacy policy
-              </h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-                {term}
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal size="xl" show={show} >
+      <Modal.Header>
+        <Modal.Title>Term service and Policy</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body>{term}</Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="primary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 export default Termservice;

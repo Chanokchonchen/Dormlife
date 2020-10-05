@@ -1,18 +1,17 @@
 import React from "react";
-import Navbar from "./Navbar";
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 function Navbar2() {
   return (
-    <div className="row">
-      <div className="col">
-        <button className="btn btn-light btn-lg btn-block">Review</button>
-      </div>
-      <div className="col">
-        <button className="btn btn-light btn-lg btn-block">
-          Find Roommate
-        </button>
-      </div>
-    </div>
+    <Row noGutters={true}>
+      <Col>
+        <Button size="lg" variant="light" block>Review</Button>
+      </Col>
+      <Col>
+        <Button size="lg" variant="light" block>Find Roommate</Button>
+      </Col>
+    </Row>
   );
 }
 export default Navbar2;

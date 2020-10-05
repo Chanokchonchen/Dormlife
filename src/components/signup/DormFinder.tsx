@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React , {useState,useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 import { withStyles, createStyles } from "@material-ui/core";
@@ -12,8 +12,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Termservice from "./Termservice";
-import { idenRegExp, phoneRegExp } from "./constant";
-import { propsDormForm} from "./typeForm";
+import { phoneRegExp } from "./constant";
+import { propsNormalForm } from "./typeForm";
 import { useHistory } from "react-router-dom";
 import {Navbar,Nav,Row,Col,Button } from "react-bootstrap";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
@@ -43,11 +43,11 @@ const styles = createStyles({
     color: "black",
   },
   row: {
-    marginBottom: "3%",
+    marginBottom: "5%",
   },
 });
 
-function DormOwner(props: any) {
+function DormFinder(props: any) {
   useEffect(() => {
     document.body.style.backgroundColor = "white";
   }, []);
@@ -74,10 +74,10 @@ function DormOwner(props: any) {
           <Button variant="" onClick={() => history.goBack()}>
             <ArrowBackIosIcon htmlColor="white" fontSize="large" />
           </Button>
-          <h1 className={classes.navCenter}>Sign up for Dorm Owner</h1>
+          <h1 className={classes.navCenter}>Sign up for Dorm Finder</h1>
         </Nav>
       </Navbar>
-      <form style={{ margin: "3% 20%" }} onSubmit={handleSubmit}>
+      <form style={{ margin: "5% 20%" }} onSubmit={handleSubmit}>
         <Row className={classes.row} noGutters={true}>
           <Col>
             <FormControl component="fieldset">
@@ -169,32 +169,6 @@ function DormOwner(props: any) {
                 variant="outlined"
               />
             </FormControl>
-          </Col>
-        </Row>
-        <Row className={classes.row} noGutters={true}>
-          <Col>
-            <FormControl component="fieldset">
-              <FormLabel
-                error={touched.natID && Boolean(errors.natID)}
-                className={classes.formLabel}
-              >
-              Identification number
-              </FormLabel>
-              <TextField
-                id="natID"
-                placeholder="Enter your Identification number"
-                value={values.natID}
-                className={classes.textField}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={touched.natID ? errors.natID : ""}
-                error={touched.natID && Boolean(errors.natID)}
-                margin="dense"
-                variant="outlined"
-              />
-            </FormControl>
-          </Col>
-          <Col>
           </Col>
         </Row>
         <Row noGutters={true} className={classes.row}>
@@ -351,7 +325,7 @@ function DormOwner(props: any) {
     </div>
   );
 }
-const DormOwnerForm = withFormik({
+const DormFinderForm = withFormik({
   mapPropsToValues: ({
     name,
     lastName,
@@ -361,8 +335,7 @@ const DormOwnerForm = withFormik({
     phone,
     gender,
     acceptTerm,
-    natID,
-  }: propsDormForm) => {
+  }: propsNormalForm) => {
     return {
       name: name || "",
       lastName: lastName || "",
@@ -372,7 +345,6 @@ const DormOwnerForm = withFormik({
       gender: gender || "male",
       acceptTerm: acceptTerm || false,
       phone: phone || "",
-      natID: natID || "",
     };
   },
   validationSchema: Yup.object().shape({
@@ -391,11 +363,7 @@ const DormOwnerForm = withFormik({
       .required("Required")
       .oneOf([true], "You must accept the terms and conditions."),
     gender: Yup.string().required("Required"),
-    phone: Yup.string()
-      .matches(phoneRegExp, "Invalid phone number")
-      .required("Required"),
-    natID: Yup.string().required("Required")
-      .matches(idenRegExp,"Invalid IdenNumber")
+    phone: Yup.string().matches(phoneRegExp, "Invalid phone number"),
   }),
 
   handleSubmit: (values, { resetForm }) => {
@@ -413,6 +381,6 @@ const DormOwnerForm = withFormik({
     }, 1000);
     resetForm();
   },
-})(DormOwner);
+})(DormFinder);
 
-export default withStyles(styles)(DormOwnerForm);
+export default withStyles(styles)(DormFinderForm);

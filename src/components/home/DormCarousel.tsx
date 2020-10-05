@@ -1,50 +1,37 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-function DormCarousel() {
+import { Carousel } from "react-bootstrap";
+import { propsCarousel } from "./type";
+function DormCarousel(props: propsCarousel) {
+  const { dorms } = props;
   return (
-    <div style={{padding:"2% 10%"}}
-      id="carouselExampleIndicators"
-      className="carousel slide"
-      data-ride="carousel"
-    >
-      <ol className="carousel-indicators">
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="0"
-          className="active"
-        ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div style={{textAlign:"center"}} className="carousel-inner">
-        <div className="carousel-item active">
-          <img src="https://i.pinimg.com/originals/76/47/9d/76479dd91dc55c2768ddccfc30a4fbf5.png" alt="..." />
-        </div>
-        <div className="carousel-item">
-          <img src="https://i.pinimg.com/originals/76/47/9d/76479dd91dc55c2768ddccfc30a4fbf5.png" alt="..." />
-        </div>
-        <div className="carousel-item">
-          <img src="https://i.pinimg.com/originals/76/47/9d/76479dd91dc55c2768ddccfc30a4fbf5.png"  alt="..." />
-        </div>
-      </div>
-      <a
-        className="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-      </a>
-      <a
-        className="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-      </a>
-    </div>
+    <Carousel style={{ padding: "1% 2%" }}>
+      {dorms.map((dorm, index) => {
+        return (
+          <Carousel.Item key={index}>
+            <a href={`/dorm/${dorm.id}`}>
+              <img
+                style={{ height: "500px" }}
+                className="d-block w-100"
+                src={dorm.src}
+                alt="First slide"
+              />
+            </a>
+          </Carousel.Item>
+        );
+      })}
+{/* 
+      <Carousel.Item>
+        <a href="#">
+          <img
+            style={{ height: "500px" }}
+            className="d-block w-100"
+            src="https://udo.oop.cmu.ac.th/network%20dorm/pic_dorm/pnd.jpg"
+            alt="Second slide"
+          />
+        </a>
+      </Carousel.Item> */}
+    </Carousel>
   );
 }
-export default DormCarousel
+export default DormCarousel;
